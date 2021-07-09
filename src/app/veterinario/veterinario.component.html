@@ -1,0 +1,93 @@
+<div class="container">
+
+
+    <div class="row container-fluid">
+      <form (ngSubmit)="buscar()" #f="ngForm"  >
+      <div style="color: black;background-color: blanchedalmond;height: 40px;">
+        Especialidad
+      </div>
+        <select name="estado" id="estado" [(ngModel)]="espe" style="height: 40px;" >
+            <option *ngFor="let es of especialidad" value="{{es.especialidad}}">{{es.especialidad}}</option>
+        </select >
+        
+        <button    type="submit">   <i class="fas fa-search"></i> BUSCAR</button>
+  
+        <div style="color: black;background-color: blanchedalmond;height: 40px;">
+          Ciudad
+        </div>
+          <select name="ciudad" id="ciudad" [(ngModel)]="ciudade" style="height: 40px;" >
+              <option *ngFor="let ci of ciudad" value="{{ci.ciudad}}">{{ci.ciudad}}</option>
+          </select >
+
+          <button    type="submit">   <i class="fas fa-search"></i> BUSCAR</button>
+  
+  
+      </form>
+    </div>
+    <div *ngIf="tam" class="container">
+      <section *ngIf="tam" id="tmPortfolio" class="row">
+        
+        <div *ngIf="tam" class="container-fluid bg-warning col-7"  style="margin-right: 200px;height: 70px;text-align: center;font-size: 40px;font-weight: 500;line-height: 1.7;">
+          NO SE ENCONTRARON DATOS 
+        </div>
+        <img *ngIf="tam"  src="https://i.pinimg.com/originals/d6/bd/8f/d6bd8fa0f3ed91065ce301993b97f11a.gif" style="height: 300px;width: 300px;margin: auto;" alt="">
+      </section>
+    </div>
+    
+   <section id="tmPortfolio">
+    <div class="container-fluid">
+      <div class="row" *ngFor="let p of veterinario">
+        <div class="row">
+        <div class="col-4" style="background-color: black;">
+          <div class="tm-portfolio-item">
+          
+            <div class="tm-portfolio-description gg">
+              <h2 >
+                <span class="tm-title-small " style="color:#ffa600fd;font-weight: 1000;font-size: 22px;">nombre : {{p.nombre}} {{p.apellido}}</span> 
+              </h2>
+  
+              <h2 >
+                <span class="tm-title-small " style="color:#ffa600fd;font-weight: 1000;font-size: 22px;">email : {{p.email}} </span> 
+              </h2>
+              <h2 >
+                <span class="tm-title-small " style="color:#ffa600fd;font-weight: 1000;font-size: 22px;">Especialidad : {{p.especialidad}}</span> 
+              </h2>
+              <h2 >
+                <span class="tm-title-small " style="color:#ffa600fd;font-weight: 1000;font-size: 22px;">ciudad : {{p.ciudad}}</span> 
+              </h2>
+              <h2 >
+                <span class="tm-title-small " style="color:#ffa600fd;font-weight: 1000;font-size: 22px;">Horarios :</span> 
+              </h2>
+              <button class="" routerLink="/consulta/{{p.idVeterinario}}">CONSULTAR</button>
+              <h3 class="tm-text-blue  col-10">
+                <span class="tm-title-small" style="color:#ffa600fd;font-weight: 1000;" *ngFor="let po of p.horarios"> {{po}}</span>
+              </h3>
+              
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+      <table class="table table-dark text-center" style="background-color: rgba(7, 68, 56, 0.7) ;">
+        
+        <tbody>
+          <tr>
+            <td><i class="fas fa-angle-double-left fa-2x" (click)="rewind()"></i></td>
+            <td colspan="2">
+              
+            </td>
+            <td><i class="fas fa-angle-double-right fa-2x" (click)="forward()"></i></td>
+          </tr>
+        </tbody>
+      </table>
+  
+  </div>
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,13 @@
+
+.nav1{
+    background-color: rgba(7, 68, 56, 0.7) ;
+    height: 12%;
+    padding-left: 2%;
+    font-weight: 200;
+    font-size: 20px;
+
+}
+.navbar-brand{
+    font-weight: 1000;
+    font-size: 40px;
+}

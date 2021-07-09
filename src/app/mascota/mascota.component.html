@@ -1,0 +1,91 @@
+<div class="container mt-4 ">
+    <div class="row">
+
+        <div class="col-md-5 con">
+            <form (ngSubmit)="onRegister()" #f="ngForm" novalidate class="form bg-warning">
+                    <h2>
+                        ESPECIE
+                    </h2>
+
+                    <select name="estado" id="estado" [(ngModel)]="especie_id" style="height: 40px;" >
+                        <option *ngFor="let es of especie" value="{{es.especieId}}">{{es.especie}}</option>
+                    </select >
+
+                
+                  <h2>
+                    RAZA
+                </h2>
+    
+                <select name="estado" id="estado" [(ngModel)]="raza_id" style="height: 40px;" >
+                    <option *ngFor="let ra of raza" value="{{ra.razaId}}">{{ra.raza}}</option>
+                </select >
+
+
+                <h2>
+                    COLOR :
+                </h2>
+    
+                <select name="estado" id="estado" [(ngModel)]="color_id" style="height: 40px;" >
+                    <option *ngFor="let co of color" value="{{co.colorId}}">{{co.color}}</option>
+                </select >
+
+
+              
+
+                <div class="form-group">
+                    <label for="nombre">NOMBRE :</label>
+                    <input type="nombre" class="form-control" name="nombre" id="nombre"
+                    [(ngModel)]="nombre"  required autocomplete="off" style="font-size: 20px;color: black;">
+                </div>
+
+                <div class="form-group">
+                    <label for="tamaño">TAMAÑO :</label>
+                    <input type="tamaño" class="form-control" name="tamaño" id="tamaño"
+                    [(ngModel)]="tamano"  required autocomplete="off" style="font-size: 20px;color: black;">
+                </div>
+
+                <h2>
+                    GENERO :
+                </h2>
+
+
+                <div class="form-check">
+                    <input value="1" [(ngModel)]="genero_id" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label  class="form-check-label" for="flexRadioDefault2">
+                     MACHO
+                    </label>
+                  </div>
+                <div class="form-check">
+                    <input value="2" [(ngModel)]="genero_id" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      HEMBRA
+                    </label>
+                  </div>
+                  
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="imagen" #imagenInputFile multiple 
+                    (change)="selectFiles($event)" accept="image/png, image/jpeg, image/gif">
+                    <label class="custom-file-label" for="imagen">Elige una imagen</label>
+                </div>
+                <div *ngIf="selectedFiles" class="mt-5">
+                    <h5>Vista Previa:</h5>
+                    <div>
+                        <img class="image-thumbnail" style="max-height: 100px" *ngFor="let im of imagenMin" [src]="im">
+                    </div>
+                </div>
+
+
+
+                <button type="submit" class="btn btn-success btn-block b1" [disabled]="!f.valid">
+                    <i class="fas fa-plus-circle"></i> Registrarse</button>
+                    <button type="button" class="btn btn-primary btn-block b2" (click)="volver()">
+                        <i class="far fa-arrow-alt-circle-left"></i> Volver</button>
+            </form>
+        </div>
+
+
+
+
+        
+    </div>
+</div>
