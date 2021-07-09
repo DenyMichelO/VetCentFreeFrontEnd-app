@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black;color: white;">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(3, 82, 85);color: white;">
     <div class="container-fluid">
      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,21 +7,10 @@
       <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"> <i class="fas fa-home"></i> INICIO</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active"  routerLink="/veterinario"> <i class="fas fa-list-alt"></i>VETERINARIO</a>
-          </li>
-
-          <li *ngIf="isLogged" class="nav-item">
-            <a class="nav-link" routerLink="/crear"><i class="fas fa-plus-circle"></i> REGISTRAR</a>
-          </li>
-
-          <li *ngIf="isLogged" class="nav-item">
-            <a class="nav-link" routerLink="/lista"><i class="far fa-list-alt"></i> LISTA</a>
+            <a class="nav-link active"  routerLink="/veterinario"> <i class="fas fa-list-alt"></i>LISTA DE VETERINARIOS</a>
           </li>
           <li *ngIf="isLogged" class="nav-item">
-            <a class="nav-link" routerLink="/mascota" href="#"><i class="fas fa-circle"></i> Registra mascota</a>
+            <a class="nav-link" routerLink="/mascota" href="#"><i class="far fa-edit"></i> REGISTRAR MASCOTA</a>
           </li>
           
         
@@ -36,7 +25,7 @@
               
                 
             <button *ngIf="!isLogged" class="btn btn-outline-light"(click)="login()"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
-            <button *ngIf="isLogged" class="btn btn-outline-danger"(click)="logout()" ><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+            <button *ngIf="isLogged" class="btn btn-outline-light"(click)="logout()" ><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
         </ul>
         
       </div>

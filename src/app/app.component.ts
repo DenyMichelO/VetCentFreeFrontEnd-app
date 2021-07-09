@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import{AuthConfig, NullValidationHandler, OAuthService} from 'angular-oauth2-oidc'
 import { MessageService } from './service/message.service';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'VetCentFreeFrontEnd-app';
+  title = 'free';
   username : string="";
   isLogged : boolean=false;
   isAdmin: boolean=false;
@@ -49,7 +48,7 @@ export class AppComponent {
      const payloadDecoded=JSON.parse(payloadDecodeJason);
      //console.log(payloadDecoded.given_name);
     //console.log(payloadDecoded.realm_access.roles.indexOf('Realm-Amin'));
-     return payloadDecoded.realm_access.roles.indexOf('Realm-Admin')!=-1;
+     return payloadDecoded.realm_access.roles.indexOf('realm-admin')!=-1;
     
     }
     public getName():string{

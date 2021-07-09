@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "91f3f537-e5fa-4b25-a233-d4bfbb1bedf7"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "VetCentFreeFrontEnd-app": {
+    "curso-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/VetCentFreeFrontEnd-app",
+            "outputPath": "dist/curso-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "VetCentFreeFrontEnd-app:build:production"
+              "browserTarget": "curso-angular:build:production"
             },
             "development": {
-              "browserTarget": "VetCentFreeFrontEnd-app:build:development"
+              "browserTarget": "curso-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "VetCentFreeFrontEnd-app:build"
+            "browserTarget": "curso-angular:build"
           }
         },
         "test": {
@@ -104,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "VetCentFreeFrontEnd-app"
+  "defaultProject": "curso-angular"
 }

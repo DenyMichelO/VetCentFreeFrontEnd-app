@@ -7,12 +7,16 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { VeterinarioService } from '../service/veterinario.service';
 import { Especialidad } from '../models/especialidad';
 import { Ciudad } from '../models/ciudad';
+import { AppComponent } from '../app.component';
 @Component({
   selector: 'app-veterinario',
   templateUrl: './veterinario.component.html',
   styleUrls: ['./veterinario.component.css']
 })
 export class VeterinarioComponent implements OnInit {
+
+  isLogged:boolean=false;
+  isAdmin:boolean=false;
 
   public previsualizacion: String[]=[];
   public archivos: any = [];
@@ -22,7 +26,7 @@ export class VeterinarioComponent implements OnInit {
   especialidad:Array<Especialidad>=[];
   ciudad:Array<Ciudad>=[];
   page = 0;
-  size = 1;
+  size = 2;
   tam:boolean=false;
   tam2:boolean=false;
   nombre:string="";
@@ -32,12 +36,13 @@ export class VeterinarioComponent implements OnInit {
   isLast = false;
 
 fileInfos: Observable<any> | undefined;
-  constructor(private veterinarioService:VeterinarioService,private sanitizer: DomSanitizer) { }
+  constructor(private veterinarioService:VeterinarioService,private sanitizer: DomSanitizer,private components:AppComponent) { }
 
   ngOnInit(): void {
     this.buscar();
     this.especialidades();
     this.ciudades();
+    this.isLogged =this.components.getisLogged();
   }
 
 especialidades(){
@@ -92,8 +97,8 @@ buscar(){
 }
   rewind(): void {
     if (!this.isFirst) {
-      if(this.page-1>=0){
-        this.page=this.page-1;
+      if(this.page-2>=0){
+        this.page=this.page-2;
         this.buscar();
       }
      
@@ -102,7 +107,7 @@ buscar(){
 
   forward(): void {
     if (!this.isLast) {
-      this.page=this.page+1;
+      this.page=this.page+2;
       this.buscar();
     }
   }

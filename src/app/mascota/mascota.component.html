@@ -1,13 +1,13 @@
 <div class="container mt-4 ">
     <div class="row">
 
-        <div class="col-md-5 con">
-            <form (ngSubmit)="onRegister()" #f="ngForm" novalidate class="form bg-warning">
+        <div class="col-md-10 con">
+            <form (ngSubmit)="onRegister()" #f="ngForm" novalidate class="form bg-information" style="margin: 40px;">
                     <h2>
                         ESPECIE
                     </h2>
 
-                    <select name="estado" id="estado" [(ngModel)]="especie_id" style="height: 40px;" >
+                    <select name="estado" id="estado" [(ngModel)]="especie_id" style="height: 40px; font-size: 20px;" >
                         <option *ngFor="let es of especie" value="{{es.especieId}}">{{es.especie}}</option>
                     </select >
 
@@ -16,7 +16,7 @@
                     RAZA
                 </h2>
     
-                <select name="estado" id="estado" [(ngModel)]="raza_id" style="height: 40px;" >
+                <select name="estado" id="estado" [(ngModel)]="raza_id" style="height: 40px; font-size: 20px;" >
                     <option *ngFor="let ra of raza" value="{{ra.razaId}}">{{ra.raza}}</option>
                 </select >
 
@@ -25,7 +25,7 @@
                     COLOR :
                 </h2>
     
-                <select name="estado" id="estado" [(ngModel)]="color_id" style="height: 40px;" >
+                <select name="estado" id="estado" [(ngModel)]="color_id" style="height: 40px; font-size: 20px;" >
                     <option *ngFor="let co of color" value="{{co.colorId}}">{{co.color}}</option>
                 </select >
 
@@ -33,13 +33,13 @@
               
 
                 <div class="form-group">
-                    <label for="nombre">NOMBRE :</label>
+                    <label for="nombre"><h2>NOMBRE :</h2></label>
                     <input type="nombre" class="form-control" name="nombre" id="nombre"
                     [(ngModel)]="nombre"  required autocomplete="off" style="font-size: 20px;color: black;">
                 </div>
 
                 <div class="form-group">
-                    <label for="tamaño">TAMAÑO :</label>
+                    <label for="tamaño"><h2>TAMAÑO :</h2></label>
                     <input type="tamaño" class="form-control" name="tamaño" id="tamaño"
                     [(ngModel)]="tamano"  required autocomplete="off" style="font-size: 20px;color: black;">
                 </div>
@@ -65,7 +65,13 @@
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" id="imagen" #imagenInputFile multiple 
                     (change)="selectFiles($event)" accept="image/png, image/jpeg, image/gif">
-                    <label class="custom-file-label" for="imagen">Elige una imagen</label>
+                    <label class="custom-file-label" for="imagen">
+                        
+                        <h2>
+                            ELIGE UNA IMAGEN:
+                        </h2>
+                    
+                    </label>
                 </div>
                 <div *ngIf="selectedFiles" class="mt-5">
                     <h5>Vista Previa:</h5>

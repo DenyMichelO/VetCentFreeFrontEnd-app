@@ -2,84 +2,83 @@
 
 
     <div class="row container-fluid">
-      <form (ngSubmit)="buscar()" #f="ngForm"  >
-      <div style="color: black;background-color: blanchedalmond;height: 40px;">
-        Especialidad
-      </div>
-        <select name="estado" id="estado" [(ngModel)]="espe" style="height: 40px;" >
+      <form (ngSubmit)="buscar()" #f="ngForm"  class="d-flex">
+      <div *ngIf="isLogged" style="color: rgb(198, 232, 236);background-color: rgb(18, 79, 83);height: 50px;width: 600px;">
+        ESPECIALIDAD:   
+    
+        <select  *ngIf="isLogged" name="estado" id="estado" [(ngModel)]="espe" style="height: 40px;" >
+          <option value=""> </option>
             <option *ngFor="let es of especialidad" value="{{es.especialidad}}">{{es.especialidad}}</option>
         </select >
-        
-        <button    type="submit">   <i class="fas fa-search"></i> BUSCAR</button>
+      </div>
   
-        <div style="color: black;background-color: blanchedalmond;height: 40px;">
-          Ciudad
-        </div>
-          <select name="ciudad" id="ciudad" [(ngModel)]="ciudade" style="height: 40px;" >
+      <div *ngIf="isLogged" style="color: rgb(198, 232, 236);background-color: rgb(18, 79, 83);height: 50px;width: 600px;">
+           CIUDAD: 
+          <select  *ngIf="isLogged" name="ciudad" id="ciudad" [(ngModel)]="ciudade" style="height: 40px;" >
+            <option value=""> </option>
               <option *ngFor="let ci of ciudad" value="{{ci.ciudad}}">{{ci.ciudad}}</option>
           </select >
+        </div>
 
-          <button    type="submit">   <i class="fas fa-search"></i> BUSCAR</button>
-  
+        <div style="text-align: center">
+          <button *ngIf="isLogged" mat-raised-button   type="submit">   <i  *ngIf="isLogged" class="fas fa-search"></i> BUSCAR</button>
+        </div>
   
       </form>
     </div>
     <div *ngIf="tam" class="container">
       <section *ngIf="tam" id="tmPortfolio" class="row">
         
-        <div *ngIf="tam" class="container-fluid bg-warning col-7"  style="margin-right: 200px;height: 70px;text-align: center;font-size: 40px;font-weight: 500;line-height: 1.7;">
-          NO SE ENCONTRARON DATOS 
+        <div *ngIf="tam"   style="margin-right: 200px;height: 70px;text-align: center;font-size: 40px;font-weight: 500;line-height: 1.7;">
+          NO EXITE EN LA BASE DE DATOS 
         </div>
-        <img *ngIf="tam"  src="https://i.pinimg.com/originals/d6/bd/8f/d6bd8fa0f3ed91065ce301993b97f11a.gif" style="height: 300px;width: 300px;margin: auto;" alt="">
+        <img *ngIf="tam"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwd0VBEwnVFxTd8Y89Ea3ltm4yYWkxtSidIQ&usqp=CAU" style="height: 300px;width: 300px;margin: auto;" alt="">
       </section>
     </div>
     
    <section id="tmPortfolio">
-    <div class="container-fluid">
-      <div class="row" *ngFor="let p of veterinario">
-        <div class="row">
-        <div class="col-4" style="background-color: black;">
+    <div class="container-fluid "> 
+      <div class="row">
+        <div class="col-6" style="background-color: rgb(176, 235, 227); "*ngFor="let p of veterinario">
           <div class="tm-portfolio-item">
           
             <div class="tm-portfolio-description gg">
               <h2 >
-                <span class="tm-title-small " style="color:#ffa600fd;font-weight: 1000;font-size: 22px;">nombre : {{p.nombre}} {{p.apellido}}</span> 
+                <span class="tm-title-small " style="color:#0acff1fd;font-weight: 1000;font-size: 22px;">Nombre : {{p.nombre}} {{p.apellido}}</span> 
               </h2>
   
               <h2 >
-                <span class="tm-title-small " style="color:#ffa600fd;font-weight: 1000;font-size: 22px;">email : {{p.email}} </span> 
+                <span class="tm-title-small " style="color:#0acff1fd;font-weight: 1000;font-size: 22px;">Correo Electronico : {{p.email}} </span> 
               </h2>
               <h2 >
-                <span class="tm-title-small " style="color:#ffa600fd;font-weight: 1000;font-size: 22px;">Especialidad : {{p.especialidad}}</span> 
+                <span class="tm-title-small " style="color:#0acff1fd;font-weight: 1000;font-size: 22px;">Especialidad : {{p.especialidad}}</span> 
               </h2>
               <h2 >
-                <span class="tm-title-small " style="color:#ffa600fd;font-weight: 1000;font-size: 22px;">ciudad : {{p.ciudad}}</span> 
+                <span class="tm-title-small " style="color:#0acff1fd;font-weight: 1000;font-size: 22px;">Ciudad : {{p.ciudad}}</span> 
               </h2>
               <h2 >
-                <span class="tm-title-small " style="color:#ffa600fd;font-weight: 1000;font-size: 22px;">Horarios :</span> 
+                <span class="tm-title-small " style="color:#0acff1fd;font-weight: 1000;font-size: 22px;">Horarios :</span> 
               </h2>
-              <button class="" routerLink="/consulta/{{p.idVeterinario}}">CONSULTAR</button>
               <h3 class="tm-text-blue  col-10">
-                <span class="tm-title-small" style="color:#ffa600fd;font-weight: 1000;" *ngFor="let po of p.horarios"> {{po}}</span>
+                <span class="tm-title-small" style="color:#2877eefd;font-weight: 1000;" *ngFor="let po of p.horarios"> {{po}}</span>
               </h3>
               
             </div>
-          </div>
          
         </div>
       </div>
     </div>
   </div>
   </section>
-      <table class="table table-dark text-center" style="background-color: rgba(7, 68, 56, 0.7) ;">
+      <table class="table text-center" style="background-color: rgba(7, 68, 56, 0.7) ;">
         
         <tbody>
           <tr>
-            <td><i class="fas fa-angle-double-left fa-2x" (click)="rewind()"></i></td>
+            <td><i class="far fa-arrow-alt-circle-left fa-2x" (click)="rewind()"></i></td> 
             <td colspan="2">
               
             </td>
-            <td><i class="fas fa-angle-double-right fa-2x" (click)="forward()"></i></td>
+            <td><i class="far fa-arrow-alt-circle-right fa-2x" (click)="forward()"></i></td>
           </tr>
         </tbody>
       </table>
